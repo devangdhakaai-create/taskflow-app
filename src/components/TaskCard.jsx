@@ -1,4 +1,4 @@
-function TaskCard({ id, title, done, onRemove }) {
+function TaskCard({ id, title, done, onRemove, onToggle }) {
   return (
     <div>
       <p>{title}</p>
