@@ -32,6 +32,11 @@ function TaskList() {
 
   return (
     <div>
+      <p>
+        Total: {tasks.length} | 
+        Completed: {tasks.filter(task => task.done).length} | 
+        Pending: {tasks.filter(task => !task.done).length}
+      </p>
       <AddTaskForm onAdd={addTask} />
       {tasks.map((task) => (
         <TaskCard

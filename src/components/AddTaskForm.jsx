@@ -1,27 +1,28 @@
-import { useState } from "react";
+import { useState } from "react"
 
 function AddTaskForm({ onAdd }) {
-    const [title, setTitle] = useState('')
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const [title, setTitle] = useState('')
 
-        if (title.trim() === '') return
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (title.trim() === '') return
+    onAdd(title)
+    setTitle('')
+  }
 
-        onAdd(title)
-        setTitle('')
-    }
-    return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type = "text"
-                value = {title}
-                onChange = {(e) => setTitle(e.target.value)}
-                placeholder = "Enter task title"
-            />
-            <button type = "submit">Add Task</button>
-        </form>
-    )
-    
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Enter task title"
+        />
+        <button type="submit">Add Task</button>
+      </form>
+    </div>
+  )
+}
 
 export default AddTaskForm
