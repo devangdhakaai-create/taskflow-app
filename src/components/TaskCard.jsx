@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useParams, Link } from 'react-router-dom';
 
 function TaskCard({ id, title, done, onRemove, onToggle, onEdit }) {
   const [isEditing, setIsEditing] = useState(false)
@@ -28,6 +29,7 @@ function TaskCard({ id, title, done, onRemove, onToggle, onEdit }) {
         <div>
           <p>{title}</p>
           <p>{done ? "Completed" : "Pending"}</p>
+          <Link to={`/tasks/${id}`}>View Detail</Link>
           <button onClick={() => {
             setEditTitle(title)
             setIsEditing(true)
@@ -35,6 +37,7 @@ function TaskCard({ id, title, done, onRemove, onToggle, onEdit }) {
           <button onClick={() => onToggle(id)}>Toggle</button>
           <button onClick={() => onRemove(id)}>Delete</button>
         </div>
+        
       )}
     </div>
   )

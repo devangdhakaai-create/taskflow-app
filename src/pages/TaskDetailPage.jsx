@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function TaskDetailPage() {
   const { id } = useParams()
@@ -15,6 +15,7 @@ function TaskDetailPage() {
   return (
     <div>
         <h2>Task Detail</h2>
+        <Link to="/tasks">← Back to Task</Link>
         <p>Title: {task.title}</p>
         <p>Status: {task.done ? 'Complete' : 'Pending'}</p>
     </div>
