@@ -30,6 +30,13 @@ function TaskList() {
     setTasks([...tasks, newTask])
   }
 
+  const editTask = (id, newTitle) => {
+    setTasks(
+      tasks.map((task) =>
+      task.id === id ? {...task, title: newTitle} : task
+      )
+    )
+  } 
   return (
     <div>
       <p>
@@ -46,6 +53,7 @@ function TaskList() {
           done={task.done}
           onRemove={removeTask}
           onToggle={toggleTask}
+          onEdit={editTask}
         />
       ))}
     </div>
