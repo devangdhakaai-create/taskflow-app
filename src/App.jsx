@@ -4,16 +4,19 @@
 import { Routes, Route, Navigate} from "react-router-dom"
 import TasksPage from './pages/TasksPage'
 import TaskDetailPage from './pages/TaskDetailPage'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <div>
-      <h1>TaskFlow</h1>
+      <navbar />
+      <div style={{padding: '0 1rem'}}>
       <Routes>
         <Route path="/" element={<Navigate to="tasks"/>}/>
         <Route path="/tasks" element={<TasksPage/>} />
         <Route path="/tasks/:id" element={<TaskDetailPage />} />
       </Routes>
+    </div>
     </div>
   )
 }

@@ -1,7 +1,8 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 function TaskDetailPage() {
   const { id } = useParams()
+  const navigate = useNavigate()
 
   const tasks = [
     { id: 1, title: "Buy groceries", done: false },
@@ -10,14 +11,19 @@ function TaskDetailPage() {
   ]
   const task = tasks.find((t) => t.id === Number(id))
   if (!task) {
-    return <p>Task not found</p>
+    return (
+      <div>
+        <p>Task not found</p>
+        <button onClick={() => navigate('/tasks')}>Back to Tasks</button>
+      </div>
+    )
   }
   return (
     <div>
-        <h2>Task Detail</h2>
-        <Link to="/tasks">← Back to Task</Link>
-        <p>Title: {task.title}</p>
-        <p>Status: {task.done ? 'Complete' : 'Pending'}</p>
+      <Link to="/tasks">← Back to Tasks</Link>
+      <h2 style={{ margin: '1rem 0 0.5rem' }}>{task.title}</h2>
+      <p>Status: {task.done ? '✅ Completed' : '⏳ Pending'}</p>
+      <p>Task ID: {task.id}</p>
     </div>
   )
 }
