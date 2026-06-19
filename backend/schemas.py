@@ -18,3 +18,21 @@ class TaskResponse(BaseModel):
 
     class Config:
         from_attributes = True
+        
+# For registering a new user
+class UserCreate(BaseModel):
+    email: str
+    password: str
+
+# What we send back after register/login
+class UserResponse(BaseModel):
+    id: int
+    email: str
+
+    class Config:
+        from_attributes = True
+
+# What we send back after successful login
+class Token(BaseModel):
+    access_token: str
+    token_type: str

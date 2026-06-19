@@ -13,3 +13,12 @@ class Task(Base):
     
     # Done status — defaults to False when task is created
     done = Column(Boolean, default=False)
+    
+    #Link each task to user
+    owner_id = Column(Integer, nullable=True)
+    
+class User(Base):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String, unique=True, index=True)
+    password = Column(String, nullable=False)
