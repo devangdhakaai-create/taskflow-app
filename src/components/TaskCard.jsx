@@ -34,7 +34,7 @@ function TaskCard({ id, title, done, onRemove, onToggle, onEdit }) {
             setEditTitle(title)
             setIsEditing(true)
           }}>Edit</button>
-          <button onClick={() => onToggle(id)}>Toggle</button>
+          <button onClick={() => onToggle(id, done)}>Toggle</button>
           <button onClick={() => onRemove(id)}>Delete</button>
         </div>
         
