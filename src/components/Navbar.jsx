@@ -28,12 +28,16 @@ function Navbar() {
       <Link to="/tasks" style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>
         TaskFlow
       </Link>
-      <div>
+      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
         {token ? (
-          <button onClick={handleLogout}>Logout</button>
+          <>
+            <Link to="/tasks">Tasks</Link>
+            <Link to="/dashboard">Dashboard</Link>
+            <button onClick={handleLogout}>Logout</button>
+          </>
         ) : (
           <>
-            <Link to="/login" style={{ marginRight: '1rem' }}>Login</Link>
+            <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
           </>
         )}
